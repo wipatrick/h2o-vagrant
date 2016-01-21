@@ -1,0 +1,11 @@
+# OS-specific
+.DS_Store
+
+# H2O-specific
+*.jar
+
+# Vagrant-specific
+/.vagrant
+
+# data files
+*.csv

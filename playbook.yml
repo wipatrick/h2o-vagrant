@@ -1,0 +1,18 @@
+---
+- hosts: all
+  remote_user: vagrant
+  become: yes
+  become_method: sudo
+  tasks:
+      - name: copy wrapper,flatfile,h2o
+        copy: src={{ item }} dest=/opt/ mode=0777
+        with_items:
+          - ./conf/wrapper.sh
+          - ./conf/flatfile.txt
+          - ./h2o/h2o.jar
+      - name: install java7
+        yum: name={{ item }} state=present
+        with_items:
+          - java-1.7.0-openjdk
+      - name: start h2o in wrapper
+        shell: /bin/sh /opt/wrapper.sh start
