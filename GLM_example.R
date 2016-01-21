@@ -22,10 +22,9 @@ localH2O = h2o.init(ip = "192.168.33.10", port = 54321, startH2O = TRUE)
 
 # Demo with H2O Generalized Linear Models
 
-# Get small airline dataset ~4.5 MB: https://s3.amazonaws.com/h2o-airlines-unpacked/allyears2k.csv
-# Get big airline dataset ~12 GB: https://s3.amazonaws.com/h2o-airlines-unpacked/allyears.csv
+# Small airline dataset ~4.5 MB: https://s3.amazonaws.com/h2o-airlines-unpacked/allyears2k.csv
 airlinesURL = "https://s3.amazonaws.com/h2o-airlines-unpacked/allyears2k.csv"
-airlines.hex = h2o.importFile(path = airlinesURL, destination_frame = "airlines.hex")
+airlines_new.hex = h2o.importFile(path = airlinesURL, destination_frame = "airlines_new.hex")
 summary(airlines.hex)
 
 # View quantiles and histograms
